@@ -27,7 +27,7 @@ Each group will only have limited access to DataBrew buckets, inline policy will
 2. Click **Create permission Set**
 3. Click **Custom permission set**
 4. Go to **Inline Policy**
-5. In the inline policy section, you will be able to use an JSON editor to control access to a certain bucket. Check the IAM Policy creation guide for more information
+5. In the inline policy section, you will be able to use an JSON editor to control access to a certain bucket. Check this [Official AWS Docs](https://aws.amazon.com/blogs/security/writing-iam-policies-grant-access-to-user-specific-folders-in-an-amazon-s3-bucket/) for detailed information
 6. Finish the remaining description and tags information
 
 ## Step 4: Tagging the Permission to DataBrew Accounts
@@ -38,3 +38,6 @@ You have created the permissions, now it's time to apply that permission to your
 4. Choose the group to have the access to this account
 5. Choose the **Inline Policy** you just created in step 3
 6. Submit the assignments to the target AWS Account
+
+## Step 5: Update this Repository Inline Policy 
+After all said and done, please update the inline policy inside this repository for version control

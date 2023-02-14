@@ -2,7 +2,7 @@
 	"Version": "2012-10-17",
 	"Statement": [
 		{
-			"Sid": "AllowStatement1",
+			"Sid": "AllowEntoTeamToFindBuckets", 
 			"Action": [
 				"s3:ListAllMyBuckets",
 				"s3:GetBucketLocation"
@@ -13,7 +13,7 @@
 			]
 		},
 		{
-			"Sid": "AllowStatement2A",
+			"Sid": "AllowEntoTeamToListFoldersWithinEntoBucket", 
 			"Action": [
 				"s3:ListBucket"
 			],
@@ -31,7 +31,7 @@
 			}
 		},
 		{
-			"Sid": "AllowStatement3",
+			"Sid": "AllowEntoTeamToListObjectsWithinEntoBucket",
 			"Action": [
 				"s3:ListBucket"
 			],
@@ -48,7 +48,7 @@
 			}
 		},
 		{
-			"Sid": "AllowStatement4A",
+			"Sid": "AllowEntoTeamToDoThingsWithinEntoBucket",
 			"Effect": "Allow",
 			"Action": [
 				"s3:GetObject",
