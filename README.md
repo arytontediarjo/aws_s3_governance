@@ -40,4 +40,4 @@ You have created the permissions, now it's time to apply that permission to your
 6. Submit the assignments to the target AWS Account
 
 ## Step 5: Update this Repository Inline Policy 
-After all said and done, please update the inline policy inside this repository for version control
+Withall said and done, please update the inline policy inside this repository for version control
