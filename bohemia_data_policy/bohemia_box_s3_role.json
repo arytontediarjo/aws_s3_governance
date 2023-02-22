@@ -1,0 +1,71 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "AllowBoxTeamToFindBuckets", 
+			"Action": [
+				"s3:ListAllMyBuckets",
+				"s3:GetBucketLocation"
+			],
+			"Effect": "Allow",
+			"Resource": [
+				"arn:aws:s3:::*"
+			]
+		},
+		{
+			"Sid": "AllowBoxTeamToListFolders", 
+			"Action": [
+				"s3:ListBucket"
+			],
+			"Effect": "Allow",
+			"Resource": [
+				"arn:aws:s3:::bohemia-datalake"
+			],
+			"Condition": {
+				"StringEquals": {
+					"s3:prefix": [
+						"",
+						"bohemia-census",
+						"bohemia-healtheconmonthly",
+						"bohemia-minicensus",
+						"bohemia-safety-efficacy"
+					]
+				}
+			}
+		},
+		{
+			"Sid": "AllowBoxTeamToListObjectsWithinBucket",
+			"Action": [
+				"s3:ListBucket"
+			],
+			"Effect": "Allow",
+			"Resource": [
+				"arn:aws:s3:::bohemia-datalake"
+			],
+			"Condition": {
+				"StringLike": {
+					"s3:prefix": [
+						"bohemia-census/*",
+						"bohemia-healtheconmonthly/*",
+						"bohemia-minicensus/*",
+						"bohemia-safety-efficacy/*"
+					]
+				}
+			}
+		},
+		{
+			"Sid": "AllowBoxTeamToDoThingsWithinFolder",
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject"
+			],
+			"Resource": [
+				"arn:aws:s3:::bohemia-datalake/bohemia-census/*",
+				"arn:aws:s3:::bohemia-datalake/bohemia-healtheconmonthly/*",
+				"arn:aws:s3:::bohemia-datalake/bohemia-minicensus/*",
+				"arn:aws:s3:::bohemia-datalake/bohemia-safety-efficacy/*"
+			]
+		}
+	]
+}
