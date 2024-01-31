@@ -19,13 +19,15 @@
 			],
 			"Effect": "Allow",
 			"Resource": [
-				"arn:aws:s3:::bohemia-datalake"
+				"arn:aws:s3:::bohemia-datalake",
+				"arn:aws:s3:::databrew.org"
 			],
 			"Condition": {
 				"StringEquals": {
 					"s3:prefix": [
 						"",
-						"bohemia-ento"
+						"bohemia-ento",
+						"kwale"
 					]
 				}
 			}
@@ -37,12 +39,14 @@
 			],
 			"Effect": "Allow",
 			"Resource": [
-				"arn:aws:s3:::bohemia-datalake"
+				"arn:aws:s3:::bohemia-datalake",
+				"arn:aws:s3:::databrew.org"
 			],
 			"Condition": {
 				"StringLike": {
 					"s3:prefix": [
-						"bohemia-ento/*"
+						"bohemia-ento/*",
+						"kwale/*"
 					]
 				}
 			}
@@ -54,7 +58,10 @@
 				"s3:GetObject"
 			],
 			"Resource": [
-				"arn:aws:s3:::bohemia-datalake/bohemia-ento/*"
+				"arn:aws:s3:::bohemia-datalake/bohemia-ento/*",
+				"arn:aws:s3:::databrew.org/kwale/raw-form/ento*",
+				"arn:aws:s3:::databrew.org/kwale/clean-form/ento*",
+				"arn:aws:s3:::databrew.org/kwale/sanitized-form/ento*"
 			]
 		}
 	]

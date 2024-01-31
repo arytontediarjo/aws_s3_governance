@@ -2,7 +2,7 @@
 	"Version": "2012-10-17",
 	"Statement": [
 		{
-			"Sid": "AllowEntoTeamToFindBuckets", 
+			"Sid": "AllowTeamToSeeBucket", 
 			"Action": [
 				"s3:ListAllMyBuckets",
 				"s3:GetBucketLocation"
@@ -13,42 +13,42 @@
 			]
 		},
 		{
-			"Sid": "AllowEntoTeamToListFoldersWithinEntoBucket", 
+			"Sid": "AllowTeamToListFolders", 
 			"Action": [
 				"s3:ListBucket"
 			],
 			"Effect": "Allow",
 			"Resource": [
-				"arn:aws:s3:::databrew-testing-bohemia"
+				"arn:aws:s3:::databrew.org"
 			],
 			"Condition": {
 				"StringEquals": {
 					"s3:prefix": [
 						"",
-						"bohemia-ento"
+						"kwale/sanitized-form"
 					]
 				}
 			}
 		},
 		{
-			"Sid": "AllowEntoTeamToListObjectsWithinEntoBucket",
+			"Sid": "AllowPregnancyTeamToListObjectsWithinBucket",
 			"Action": [
 				"s3:ListBucket"
 			],
 			"Effect": "Allow",
 			"Resource": [
-				"arn:aws:s3:::databrew-testing-bohemia"
+				"arn:aws:s3:::bohemia-datalake"
 			],
 			"Condition": {
 				"StringLike": {
 					"s3:prefix": [
-						"bohemia-ento/*"
+						"kwale/sanitized-form/*"
 					]
 				}
 			}
 		},
 		{
-			"Sid": "AllowEntoTeamToDoThingsWithinEntoBucket",
+			"Sid": "AllowPregnancyTeamToDoThingsWithinFolder",
 			"Effect": "Allow",
 			"Action": [
 				"s3:GetObject",
@@ -56,7 +56,7 @@
 				"s3:PutObject"
 			],
 			"Resource": [
-				"arn:aws:s3:::databrew-testing-bohemia/bohemia-ento/*"
+				"arn:aws:s3:::databrew.org/kwale/sanitized-form/*"
 			]
 		}
 	]
